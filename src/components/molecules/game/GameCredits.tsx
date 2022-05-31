@@ -4,9 +4,7 @@ import {ClassNameProps} from '../../particles/particles.types';
 
 export interface GameCredit {
     desc: string;
-
     title: string;
-
     url: string;
 }
 
@@ -20,12 +18,10 @@ export const GameCredits: FC<GameCreditsProps & ClassNameProps> = ({
 }) => {
     return (
         <div className={classNames(className, 'flex flex-col text-xs -mb-3')}>
-            {credits.map(({title, desc, url}, indx) => (
+            {credits.map(({title, desc}, indx) => (
                 <div className="flex flex-col mb-3" key={indx}>
                     <div>{title}:</div>
-                    <a href={url} className="text-primary hover:underline">
-                        {desc}
-                    </a>
+                    <span className="text-primary">{desc}</span>
                 </div>
             ))}
         </div>
